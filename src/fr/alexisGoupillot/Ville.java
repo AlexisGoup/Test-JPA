@@ -7,16 +7,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "villes")
 public class Ville {
-	String nom;
+	String nomCommune;
 	Integer population;
 	@Id
 	Integer id;
 	
-	public String getNom() {
-		return nom;
+	public String getNomCommune() {
+		return nomCommune;
 	}
-	public void setNom(String nomCommune) {
-		this.nom = nomCommune;
+	public void setNomCommune(String nomCommune) {
+		this.nomCommune = nomCommune;
 	}
 	public Integer getPopulation() {
 		return population;
@@ -35,7 +35,7 @@ public class Ville {
 	
 	@Override
 	public String toString() {
-		return nom + " " + population + " " + id;
+		return nomCommune + " " + population + " " + id;
 	}
 	
 }
