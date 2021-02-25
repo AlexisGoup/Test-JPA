@@ -26,6 +26,7 @@ public class Application {
 		EntityTransaction transaction = em.getTransaction();
 		transaction.begin();
 		em.persist(instAll());
+		// FIN DE LA TRANSACTION
 		transaction.commit();
 	}
 	
