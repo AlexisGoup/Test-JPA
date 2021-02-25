@@ -10,7 +10,6 @@ import javax.persistence.TypedQuery;
 public class TestJpa {
 
 	public static void main(String[] args) {
-		
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test-jpa");
 		EntityManager em = entityManagerFactory.createEntityManager();
 		
@@ -23,8 +22,11 @@ public class TestJpa {
 		Livre l = em.find(Livre.class, 1);
 		System.out.println(l);
 		
-		Emprunt e = em.find(Emprunt.class, 1);
-		System.out.println(e + "\n");
+		// Afficher tous les livres associés à un emprunt
+		Emprunt e = em.find(Emprunt.class, 1);	
+		for(Livre liv: e.getLivres()) {
+			System.out.println(liv);
+		}
 		
 		TypedQuery<Emprunt> queryEmprunts = em.createQuery("SELECT e FROM Emprunt e WHERE e.client.id = 1", Emprunt.class);
 		List<Emprunt> listEmprunts = queryEmprunts.getResultList();
@@ -32,6 +34,7 @@ public class TestJpa {
 		for(Emprunt emprunt : listEmprunts) {
 			System.out.println(emprunt + "\n");
 		}
+		
 	}
 
 }

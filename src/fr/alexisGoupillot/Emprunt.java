@@ -37,7 +37,7 @@ public class Emprunt {
 	
 	@ManyToOne
 	@JoinColumn(name="ID_CLIENT")
-	private Client client;
+	private Clients client;
 	
 	public int getId() {
 		return id;
@@ -71,11 +71,11 @@ public class Emprunt {
 		this.delai = delai;
 	}
 
-	public Client getClient() {
+	public Clients getClient() {
 		return client;
 	}
 
-	public void setClient(Client client) {
+	public void setClient(Clients client) {
 		this.client = client;
 	}
 	
